@@ -10,7 +10,7 @@ self.addEventListener('fetch', (e) => {
     e.respondWith(caches.match(req).then((hit) => hit || fetch(req).then((res) => { const copy = res.clone(); caches.open(VERSION).then((c) => c.put(req, copy)); return res; }).catch(() => hit)));
     return;
   }
-  if (url.origin !== self.location.origin || !url.pathname.startsWith('/ahmed/')) return;
+  if (url.origin !== self.location.origin || !req.url.startsWith(self.registration.scope)) return;
   if (req.mode === 'navigate') { e.respondWith(fetch(req).then((res) => { const copy = res.clone(); caches.open(VERSION).then((c) => c.put('./index.html', copy)); return res; }).catch(() => caches.match('./index.html'))); return; }
   e.respondWith(caches.match(req).then((hit) => hit || fetch(req).then((res) => { const copy = res.clone(); caches.open(VERSION).then((c) => c.put(req, copy)); return res; })));
 });
