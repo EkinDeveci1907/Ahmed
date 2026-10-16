@@ -1,5 +1,5 @@
 // Ahmed's 3 Plates, offline support. Change VERSION whenever index.html changes.
-const VERSION = 'ahm-v7';
+const VERSION = 'ahm-v8';
 const OWN = 'ahm-'; // only ever clean up this app's own caches: the other builds share this origin
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icon-180.png', './icon-192.png', './icon-512.png'];
 const CACHE_HOSTS = ['raw.githubusercontent.com'];
